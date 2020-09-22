@@ -7,5 +7,16 @@ public class Main {
 
         }
         System.out.println("Hi!");
+
+        Integer i = 5;
+        Integer j = 5;
+
+        System.out.println( i == j);
+
+        Integer k = 2000;
+        Integer l = 2000;
+
+        System.out.println( k == l);
+
     }
 }

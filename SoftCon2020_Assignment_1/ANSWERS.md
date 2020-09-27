@@ -7,7 +7,9 @@ Draw a call graph, starting from the most prominent entry point
 Write the data flow of six methods; ​six methods: ​two methods containing ​for loops and ​four with ​if/else statements; Each method must have 15 or more lines of code
 
 1.
-```private int compareNumericallyThenLexicographically(String version1, String version2) {
+located in main\commons\src\main\java\org\cryptomator\common
+```Java
+private int compareNumericallyThenLexicographically(String version1, String version2) {
 		final String[] vComps1 = StringUtils.split(version1, VERSION_SEP);
 		final String[] vComps2 = StringUtils.split(version2, VERSION_SEP);
 		final int commonCompCount = Math.min(vComps1.length, vComps2.length);
@@ -29,7 +31,9 @@ Write the data flow of six methods; ​six methods: ​two methods containing �
 
 		// all in common so far? longest version string is considered the higher version:
 		return vComps1.length - vComps2.length;
-	}``` located in main\commons\src\main\java\org\cryptomator\common
+	}
+``` 
+
 
 
 2.

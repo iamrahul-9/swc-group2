@@ -6,8 +6,7 @@ Draw a call graph, starting from the most prominent entry point
 # Part 2
 Write the data flow of six methods; ​six methods: ​two methods containing ​for loops and ​four with ​if/else statements; Each method must have 15 or more lines of code
 
-1.
-located in main\commons\src\main\java\org\cryptomator\common
+1. located in main\commons\src\main\java\org\cryptomator\common
 ```Java
 private int compareNumericallyThenLexicographically(String version1, String version2) {
 		final String[] vComps1 = StringUtils.split(version1, VERSION_SEP);
@@ -33,6 +32,13 @@ private int compareNumericallyThenLexicographically(String version1, String vers
 		return vComps1.length - vComps2.length;
 	}
 ``` 
+This method takes in two versions as arguments. They are first split by a Version Separator, namely a dot, and the minimum of both lengths is stored.
+Then, using a for loop, the method iterates over this length and for each iteration it declares a comparison result as 0.
+Both version numbers are compared using the iterating variable i, and they are subtracted from eachother. If there should be an error during the subtraction, 
+the comparison is then carried out lexicographically, for example if there are characters in the versions instead of only integers.
+If this difference turns out to be not zero, the for loop is interrupted by the return statement of the method, which returns the integer result of the version difference at position i.
+Should the for loop finish without finding a difference at any i, the method just returns the difference of both version-String array's length.
+(not sure if this does actually do exactly that in the last return)
 
 
 

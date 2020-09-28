@@ -8,6 +8,24 @@ Write the data flow of six methods; ​six methods: ​two methods containing �
 
 1. located in main\commons\src\main\java\org\cryptomator\common\SemVerComparator.java
 ```Java
+private int compare(String v1MajorMinorPatch, String v1PreReleaseVersion, String v2MajorMinorPatch, String v2PreReleaseVersion) {
+	int comparisonResult = compareNumericallyThenLexicographically(v1MajorMinorPatch, v2MajorMinorPatch);
+	if (comparisonResult == 0) {
+		if (v1PreReleaseVersion.isEmpty()) {
+			return 1; // 1.0.0 > 1.0.0-BETA
+		} else if (v2PreReleaseVersion.isEmpty()) {
+			return -1; // 1.0.0-BETA < 1.0.0
+		} else {
+			return compareNumericallyThenLexicographically(v1PreReleaseVersion, v2PreReleaseVersion);
+		}
+	} else {
+		return comparisonResult;
+	}
+}
+```
+
+2. located in main\commons\src\main\java\org\cryptomator\common\SemVerComparator.java
+```Java
 private int compareNumericallyThenLexicographically(String version1, String version2) {
 		final String[] vComps1 = StringUtils.split(version1, VERSION_SEP);
 		final String[] vComps2 = StringUtils.split(version2, VERSION_SEP);
@@ -40,8 +58,26 @@ If this difference turns out to be not zero, the for loop is interrupted by the 
 Should the for loop finish without finding a difference at any i, the method just returns the difference of both version-String array's length.
 (not sure if this does actually do exactly that in the last return)
 
-2.
-3.
+3. located in main\commons\src\main\java\org\cryptomator\common\LicenseChecker.java
+```Java
+private static ECPublicKey decodePublicKey(String pemEncodedPublicKey) {
+	try {
+		byte[] keyBytes = BaseEncoding.base64().decode(pemEncodedPublicKey);
+		PublicKey key = KeyFactory.getInstance("EC").generatePublic(new X509EncodedKeySpec(keyBytes));
+		if (key instanceof ECPublicKey) {
+			return (ECPublicKey) key;
+		} else {
+			throw new IllegalStateException("Key not an EC public key.");
+		}
+	} catch (InvalidKeySpecException e) {
+		throw new IllegalArgumentException("Invalid license public key", e);
+	} catch (NoSuchAlgorithmException e) {
+		throw new IllegalStateException(e);
+	}
+}
+```
+(only 14 lines lol)	
+
 4.
 5.
 6.

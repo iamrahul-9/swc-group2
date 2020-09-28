@@ -99,4 +99,25 @@ public void chooseFileAndNext() {
 }
 ```
 5.
+BINARY SEARCH
+located in main\ui\src\main\java\org\cryptomator\ui\recoverykey\AutoCompleter.java
+```Java
+private int findIndexOfLexicographicallyPreceeding(int begin, int end, String prefix) {
+		if (begin >= end) {
+			return begin; // this is usually where a binary search ends "unsuccessful"
+		}
+
+		int mid = (begin + end) / 2;
+		String word = dictionary.get(mid);
+		if (prefix.compareTo(word) <= 0) { // prefix preceeds or matches word
+			// proceed in left half
+			assert mid < end;
+			return findIndexOfLexicographicallyPreceeding(0, mid, prefix);
+		} else {
+			// proceed in right half
+			assert mid >= begin;
+			return findIndexOfLexicographicallyPreceeding(mid + 1, end, prefix);
+		}
+	}
+```
 6.

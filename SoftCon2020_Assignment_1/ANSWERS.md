@@ -120,7 +120,7 @@ private int findIndexOfLexicographicallyPreceeding(int begin, int end, String pr
 		}
 	}
 ```
-6.
+6. located in main\ui\src\main\java\org\cryptomator\ui\recoverykey\WordEncoder.java
 ``` Java
 /**
  * Encodes the given input as a sequence of words.

@@ -80,6 +80,7 @@ private static ECPublicKey decodePublicKey(String pemEncodedPublicKey) {
 
 4. located in main\ui\src\main\java\org\cryptomator\ui\addvaultwizard\ChooseExistingVaultController.java
 ```Java
+@FXML
 public void chooseFileAndNext() {
 	FileChooser fileChooser = new FileChooser();
 	fileChooser.setTitle(resourceBundle.getString("addvaultwizard.existing.filePickerTitle"));
@@ -102,6 +103,19 @@ public void chooseFileAndNext() {
 BINARY SEARCH
 located in main\ui\src\main\java\org\cryptomator\ui\recoverykey\AutoCompleter.java
 ```Java
+/**
+ * Find the index of the first word in {@link #dictionary} that starts with a given prefix.
+ * 
+ * This method performs an "unsuccessful" binary search (it doesn't return when encountering an exact match).
+ * Instead it continues searching in the left half (which includes the exact match) until only one element is left.
+ * 
+ * If the dictionary doesn't contain a word "left" of the given prefix, this method returns an invalid index, though.
+ *
+ * @param begin Index of first element (inclusive)
+ * @param end Index of last element (exclusive)
+ * @param prefix
+ * @return index between [0, dictLen], i.e. index can exceed the upper bounds of {@link #dictionary}.
+ */
 private int findIndexOfLexicographicallyPreceeding(int begin, int end, String prefix) {
 		if (begin >= end) {
 			return begin; // this is usually where a binary search ends "unsuccessful"

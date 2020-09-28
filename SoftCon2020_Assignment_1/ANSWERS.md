@@ -78,6 +78,25 @@ private static ECPublicKey decodePublicKey(String pemEncodedPublicKey) {
 ```
 (only 14 lines lol)	
 
-4.
+4. located in main\ui\src\main\java\org\cryptomator\ui\addvaultwizard\ChooseExistingVaultController.java
+```Java
+public void chooseFileAndNext() {
+	FileChooser fileChooser = new FileChooser();
+	fileChooser.setTitle(resourceBundle.getString("addvaultwizard.existing.filePickerTitle"));
+	fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Cryptomator Masterkey", "*.cryptomator"));
+	File masterkeyFile = fileChooser.showOpenDialog(window);
+	if (masterkeyFile != null) {
+		vaultPath.setValue(masterkeyFile.toPath().toAbsolutePath().getParent());
+		try {
+			Vault newVault = vaultListManager.add(vaultPath.get());
+			vault.set(newVault);
+			window.setScene(successScene.get());
+		} catch (NoSuchFileException e) {
+			LOG.error("Failed to open existing vault.", e);
+			errorComponent.cause(e).window(window).returnToScene(window.getScene()).build().showErrorScene();
+		}
+	}
+}
+```
 5.
 6.

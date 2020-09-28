@@ -121,3 +121,30 @@ private int findIndexOfLexicographicallyPreceeding(int begin, int end, String pr
 	}
 ```
 6.
+``` Java
+/**
+ * Encodes the given input as a sequence of words.
+ * @param input A multiple of three bytes
+ * @return A String that can be {@link #decode(String) decoded} to the input again.
+ * @throws IllegalArgumentException If input is not a multiple of three bytes
+ */
+public String encodePadded(byte[] input) {
+	Preconditions.checkArgument(input.length % 3 == 0, "input needs to be padded to a multipe of three");
+	StringBuilder sb = new StringBuilder();
+	for (int i = 0; i < input.length; i+=3) {
+		byte b1 = input[i];
+		byte b2 = input[i+1];
+		byte b3 = input[i+2];
+		int firstWordIndex = (0xFF0 & (b1 << 4)) + (0x00F & (b2 >> 4)); // 0xFFF000
+		int secondWordIndex = (0xF00 & (b2 << 8)) + (0x0FF & b3); // 0x000FFF
+		assert firstWordIndex < WORD_COUNT;
+		assert secondWordIndex < WORD_COUNT;
+		sb.append(words.get(firstWordIndex)).append(DELIMITER);
+		sb.append(words.get(secondWordIndex)).append(DELIMITER);
+	}
+	if (sb.length() > 0) {
+		sb.setLength(sb.length() - 1); // remove last space
+	}
+	return sb.toString();
+}
+```

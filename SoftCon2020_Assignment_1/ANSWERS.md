@@ -93,7 +93,6 @@ private static ECPublicKey decodePublicKey(String pemEncodedPublicKey) {
 	}
 }
 ```
-(only 14 lines lol)	
 
 4. located in main\ui\src\main\java\org\cryptomator\ui\addvaultwizard\ChooseExistingVaultController.java
 ```Java
@@ -177,5 +176,17 @@ public String encodePadded(byte[] input) {
 		sb.setLength(sb.length() - 1); // remove last space
 	}
 	return sb.toString();
+}
+```
+
+7. located in main\ui\src\main\java\org\cryptomator\ui\common\PasswordStrengthUtil.java
+```Java
+public int computeRate(CharSequence password) {
+	if (password == null || password.length() < minPwLength) {
+		return -1;
+	} else {
+		int numCharsToRate = Math.min(PW_TRUNC_LEN, password.length());
+		return zxcvbn.measure(password.subSequence(0, numCharsToRate), SANITIZED_INPUTS).getScore();
+	}
 }
 ```

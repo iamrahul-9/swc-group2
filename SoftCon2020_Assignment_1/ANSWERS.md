@@ -117,6 +117,8 @@ public void chooseFileAndNext() {
 	}
 }
 ```
+
+![Method compare](method4.png)
 5.
 BINARY SEARCH
 located in main\ui\src\main\java\org\cryptomator\ui\recoverykey\AutoCompleter.java
@@ -152,6 +154,7 @@ private int findIndexOfLexicographicallyPreceeding(int begin, int end, String pr
 		}
 	}
 ```
+
 6. located in main\ui\src\main\java\org\cryptomator\ui\recoverykey\WordEncoder.java
 ``` Java
 /**

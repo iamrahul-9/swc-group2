@@ -33,6 +33,8 @@ The first part checks, whether the String *v1PreReleaseVersion* has length 0, if
 else if instead the String *v2PreReleaseVersion* has length zero, a -1 is returned, and if none of these are the case, it hands the comparison with arguments v1PreReleaseVersion and v2PreReleaseVersion off to the method below and returns this result.
 If the comparisonResult is not zero, meaning the v1MajorMinorPatch and v2MajorMinorPatch are not equal, we return this integer instead, and ignore v1PreReleaseVersion and v2PreReleaseVersion.
 
+![Method compare](private int compare.png)
+
 2. located in main\commons\src\main\java\org\cryptomator\common\SemVerComparator.java
 ```Java
 private int compareNumericallyThenLexicographically(String version1, String version2) {

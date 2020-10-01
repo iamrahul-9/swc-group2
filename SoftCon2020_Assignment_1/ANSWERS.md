@@ -2,6 +2,7 @@
 Draw the architecture of ​at least 3 packages and 10 classes
 Draw a call graph, starting from the most prominent entry point
 
+![Package Architecture](Architecture-01.png)
 
 # Part 2
 Write the data flow of six methods; ​six methods: ​two methods containing ​for loops and ​four with ​if/else statements; Each method must have 15 or more lines of code

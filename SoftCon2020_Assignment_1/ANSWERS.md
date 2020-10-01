@@ -155,6 +155,9 @@ private int findIndexOfLexicographicallyPreceeding(int begin, int end, String pr
 	}
 ```
 
+![Method compare](method5.png)
+
+
 6. located in main\ui\src\main\java\org\cryptomator\ui\recoverykey\WordEncoder.java
 ``` Java
 /**
@@ -183,6 +186,8 @@ public String encodePadded(byte[] input) {
 	return sb.toString();
 }
 ```
+
+![Method compare](method6.png)
 
 7. located in main\ui\src\main\java\org\cryptomator\ui\common\PasswordStrengthUtil.java
 ```Java

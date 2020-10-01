@@ -3,6 +3,9 @@ Draw the architecture of ​at least 3 packages and 10 classes
 Draw a call graph, starting from the most prominent entry point
 
 ![Package Architecture](Architecture-01.png)
+We chose to show the package "org.cryptomater" and its two sub-packages in detail, as this package contains the main entry point of the application. 
+The other package (sub-package "launcher" of "org.cryptomator.ui") that is detailed in the graph, is the main launcher entry point of the UI.
+The unexplored subpackages of the UI mostly detail UI elements and helper classes.
 
 # Part 2
 Write the data flow of six methods; ​six methods: ​two methods containing ​for loops and ​four with ​if/else statements; Each method must have 15 or more lines of code

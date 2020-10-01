@@ -29,11 +29,11 @@ private int compare(String v1MajorMinorPatch, String v1PreReleaseVersion, String
 	}
 }
 ```
-This method takes in four Strings as arguments and calls the method below, in order to first compare the first and third String arguments, namely v1MajorMinorPatch and v2MajorMinorPatch.
+This method takes in four Strings as arguments and calls the method below, to first compare the first and third String arguments, namely v1MajorMinorPatch and v2MajorMinorPatch.
 If a zero is returned, which would mean both v1MajorMinorPatch and v2MajorMinorPatch are equal, we enter the if statement. 
-The first part checks, whether the String *v1PreReleaseVersion* has length 0, if so this method returns 1, because then v2 is larger, similar to the compareTo() implementation, 
+The first part checks, whether the String *v1PreReleaseVersion* has length 0, if so this method returns 1 because then v2 is larger, similar to the compareTo() implementation, 
 else if instead the String *v2PreReleaseVersion* has length zero, a -1 is returned, and if none of these are the case, it hands the comparison with arguments v1PreReleaseVersion and v2PreReleaseVersion off to the method below and returns this result.
-If the comparisonResult is not zero, meaning the v1MajorMinorPatch and v2MajorMinorPatch are not equal, we return this integer instead, and ignore v1PreReleaseVersion and v2PreReleaseVersion.
+If the comparison result is not zero, meaning the v1MajorMinorPatch and v2MajorMinorPatch are not equal, we return this integer instead and ignore v1PreReleaseVersion and v2PreReleaseVersion.
 
 ![Method compare](method1.png)
 
@@ -63,16 +63,16 @@ private int compareNumericallyThenLexicographically(String version1, String vers
 		return vComps1.length - vComps2.length;
 	}
 ``` 
-This method takes in two versions as arguments. They are first split into String Arrays via a Version delimiter, namely a dot, and the minimum of both version array lengths is stored.
-Then, using a for loop, the method iterates over this length and both version arrays and for each iteration it declares a comparison result as 0.
-Both version numbers are compared using the iterating variable i to access the version arrays, and they are subtracted from eachother. If there should be an error during the subtraction, 
-the comparison is then carried out lexicographically using Java's compareTo() method, for example if there are characters in the versions instead of only integers.
+This method takes in two versions as arguments. They are first to split into String Arrays via a Version delimiter, namely a dot, and the minimum of both version array lengths is stored.
+Then, using a for loop, the method iterates over this length and both version arrays and each iteration, it declares a comparison result as 0.
+Both version numbers are compared using the iterating variable I to access the version arrays, and they are subtracted from each other. If there should be an error during the subtraction, 
+the comparison is then carried out lexicographically using Java's compareTo() method, for example, if there are characters in the versions instead of only integers.
 Taking from the Java Documentation, compareTo() returns a 0 if the argument is the same as the object it is called upon, it returns a -1 if the object is less than the argument, and it
 returns a 1 if the object is larger than the argument.
 If this difference after either comparison turns out to be not zero, meaning both versions are not the same at some position in the version array, the for loop is interrupted by 
 the return statement of the method, which returns the integer result of the version difference at position i.
-Should the for loop finish without finding a difference at any i, the method just returns the difference of both version-String array's length.
-(not sure if this does actually do exactly that in the last return)
+Should the loop finish without finding a difference at any I, the method just returns the difference of both version-String array's length.
+(not sure if this does do exactly that in the last return)
 
 ![Method compare](method2.png)
 
@@ -131,7 +131,7 @@ located in main\ui\src\main\java\org\cryptomator\ui\recoverykey\AutoCompleter.ja
  * This method performs an "unsuccessful" binary search (it doesn't return when encountering an exact match).
  * Instead it continues searching in the left half (which includes the exact match) until only one element is left.
  * 
- * If the dictionary doesn't contain a word "left" of the given prefix, this method returns an invalid index, though.
+ * If the dictionary doesn't contain the word "left" of the given prefix, this method returns an invalid index, though.
  *
  * @param begin Index of first element (inclusive)
  * @param end Index of last element (exclusive)
@@ -166,7 +166,7 @@ private int findIndexOfLexicographicallyPreceeding(int begin, int end, String pr
  * Encodes the given input as a sequence of words.
  * @param input A multiple of three bytes
  * @return A String that can be {@link #decode(String) decoded} to the input again.
- * @throws IllegalArgumentException If input is not a multiple of three bytes
+ * @throws IllegalArgumentException If the input is not a multiple of three bytes
  */
 public String encodePadded(byte[] input) {
 	Preconditions.checkArgument(input.length % 3 == 0, "input needs to be padded to a multipe of three");

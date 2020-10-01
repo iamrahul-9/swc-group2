@@ -194,3 +194,5 @@ This method receives an argument password, notably not as a String, but as a seq
 If this password has length 0 or its length is smaller than the required password length, this method returns a -1.
 If the password is, however, not too short, it gets stripped of trailing characters, and then rated by the method measure().getScore().
 This score is returned as an int.
+
+![Method compare](method7.png)

@@ -72,6 +72,9 @@ the return statement of the method, which returns the integer result of the vers
 Should the for loop finish without finding a difference at any i, the method just returns the difference of both version-String array's length.
 (not sure if this does actually do exactly that in the last return)
 
+![Method compare](method2.png)
+
+
 3. located in main\commons\src\main\java\org\cryptomator\common\LicenseChecker.java
 ```Java
 private static ECPublicKey decodePublicKey(String pemEncodedPublicKey) {

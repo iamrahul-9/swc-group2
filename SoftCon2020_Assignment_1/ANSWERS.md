@@ -94,6 +94,8 @@ private static ECPublicKey decodePublicKey(String pemEncodedPublicKey) {
 }
 ```
 
+![Method compare](method3.png)
+
 4. located in main\ui\src\main\java\org\cryptomator\ui\addvaultwizard\ChooseExistingVaultController.java
 ```Java
 @FXML
